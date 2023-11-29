@@ -2,54 +2,70 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        defaultColor: cc.Color.GRAY,
         color: cc.Color.WHITE,
 
         lightDuration: 1,
         flashDuration: 0.2,
-        flashRepeat: 3,
+        flashRepeat: 6,
 
-        isComplete: false,
+        isCompleted: {
+            default: false,
+            visible: false,
+        },
+        isLight: {
+            default: false,
+            visible: false,
+        },
 
-        _isLight: false,
+        _isFlash: false,
+        _timer: 0,
+        _repeatCounter: 0,
     },
 
     onLoad() {
+        this.node.color = this.color;
         this.turnOff();
     },
 
     turnOn() {
-        this.node.color = this.color;
-        this._isLight = true;
+        this.node.opacity = 255;
+        this.isLight = true;
     },
 
     turnOff() {
-        this.node.color = this.defaultColor;
-        this._isLight = false;
+        this.node.opacity = 63;
+        this.isLight = false;
     },
 
     switchLight() {
-        if (this._isLight) {
+        if (this.isLight) {
             this.turnOff();
         } else {
             this.turnOn();
         }
     },
 
-    flash() {
-        this.schedule(
-            () => {
+    flash(dt) {
+        if (this._isFlash && this._repeatCounter <= this.flashRepeat) {
+            this._timer += dt;
+            if (this._timer >= this.flashDuration) {
                 this.switchLight();
-            },
-            this.flashDuration,
-            this.flashRepeat * 2
-        );
+
+                this._repeatCounter++;
+                if (this._repeatCounter > this.flashRepeat) {
+                    this.isCompleted = true;
+                }
+
+                this._timer = 0;
+            }
+        }
     },
 
-    light() {
-        this.turnOn();
-        this.scheduleOnce(() => {
-            this.flash();
-        }, this.lightDuration);
+    light(dt) {
+        this._timer += dt;
+        if (this._timer >= this.lightDuration) {
+            this._isFlash = true;
+            this._timer = 0;
+        }
     },
 });

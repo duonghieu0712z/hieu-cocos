@@ -17,7 +17,7 @@
         "__id__": 2
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 0,
     "_components": [],
     "_prefab": null,
@@ -74,14 +74,14 @@
         "__id__": 26
       },
       {
-        "__id__": 37
+        "__id__": 38
       }
     ],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 39
+        "__id__": 40
       }
     ],
     "_prefab": null,
@@ -165,7 +165,7 @@
       "__type__": "cc.Vec3",
       "x": 0,
       "y": 0,
-      "z": 391.4434825105663
+      "z": 560.3184362485318
     },
     "_scale": {
       "__type__": "cc.Vec3",
@@ -495,7 +495,8 @@
     "flashDuration": 0.2,
     "flashRepeat": 6,
     "isCompleted": false,
-    "isLight": false,
+    "isLighting": false,
+    "_isLight": false,
     "_isFlash": false,
     "_timer": 0,
     "_repeatCounter": 0,
@@ -626,7 +627,8 @@
     "flashDuration": 0.2,
     "flashRepeat": 6,
     "isCompleted": false,
-    "isLight": false,
+    "isLighting": false,
+    "_isLight": false,
     "_isFlash": false,
     "_timer": 0,
     "_repeatCounter": 0,
@@ -757,7 +759,8 @@
     "flashDuration": 0.2,
     "flashRepeat": 6,
     "isCompleted": false,
-    "isLight": false,
+    "isLighting": false,
+    "_isLight": false,
     "_isFlash": false,
     "_timer": 0,
     "_repeatCounter": 0,
@@ -993,6 +996,9 @@
     "_components": [
       {
         "__id__": 36
+      },
+      {
+        "__id__": 37
       }
     ],
     "_prefab": null,
@@ -1139,6 +1145,11 @@
       "__id__": 27
     },
     "_enabled": true,
+    "direction": {
+      "__type__": "cc.Vec2",
+      "x": 1,
+      "y": 0
+    },
     "speed": 300,
     "isMoving": false,
     "_id": "1aKXRUpOdMv7P6N9VinLTO"
@@ -1375,9 +1386,27 @@
       "__id__": 26
     },
     "_enabled": true,
+    "direction": {
+      "__type__": "cc.Vec2",
+      "x": 1,
+      "y": 0
+    },
     "speed": 300,
     "isMoving": false,
     "_id": "27r48efZBElbUxtsyYF0b0"
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 26
+    },
+    "_enabled": true,
+    "_defaultClip": null,
+    "_clips": [],
+    "playOnLoad": false,
+    "_id": "5ebNpd4gxCS76hhFjgh6LR"
   },
   {
     "__type__": "cc.Node",
@@ -1391,7 +1420,7 @@
     "_level": 2,
     "_components": [
       {
-        "__id__": 38
+        "__id__": 39
       }
     ],
     "_prefab": null,
@@ -1442,7 +1471,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 37
+      "__id__": 38
     },
     "_enabled": true,
     "greenLight": {

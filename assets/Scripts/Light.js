@@ -12,11 +12,12 @@ cc.Class({
             default: false,
             visible: false,
         },
-        isLight: {
+        isLighting: {
             default: false,
             visible: false,
         },
 
+        _isLight: false,
         _isFlash: false,
         _timer: 0,
         _repeatCounter: 0,
@@ -27,18 +28,25 @@ cc.Class({
         this.turnOff();
     },
 
+    update(dt) {
+        if (this.isLighting) {
+            this.light(dt);
+            this.flash(dt);
+        }
+    },
+
     turnOn() {
         this.node.opacity = 255;
-        this.isLight = true;
+        this._isLight = true;
     },
 
     turnOff() {
         this.node.opacity = 63;
-        this.isLight = false;
+        this._isLight = false;
     },
 
     switchLight() {
-        if (this.isLight) {
+        if (this._isLight) {
             this.turnOff();
         } else {
             this.turnOn();

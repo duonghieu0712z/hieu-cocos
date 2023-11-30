@@ -2,6 +2,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        direction: cc.Vec2.RIGHT,
         speed: 20,
 
         isMoving: {
@@ -12,7 +13,10 @@ cc.Class({
 
     update(dt) {
         if (this.isMoving) {
-            this.node.x += this.speed * dt;
+            const normalizeDirection = this.direction.normalize();
+            this.node.position = this.node.position.add(
+                normalizeDirection.mul(this.speed * dt)
+            );
         }
     },
 });

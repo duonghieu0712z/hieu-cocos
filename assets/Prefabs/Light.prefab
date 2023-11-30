@@ -18,7 +18,7 @@
     "_parent": null,
     "_children": [],
     "_active": true,
-    "_level": 2,
+    "_level": 1,
     "_components": [
       {
         "__id__": 2
@@ -112,13 +112,6 @@
       "__id__": 1
     },
     "_enabled": true,
-    "defaultColor": {
-      "__type__": "cc.Color",
-      "r": 127,
-      "g": 127,
-      "b": 127,
-      "a": 255
-    },
     "color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -129,7 +122,12 @@
     "lightDuration": 1,
     "flashDuration": 0.2,
     "flashRepeat": 3,
+    "isCompleted": false,
+    "isLighting": false,
     "_isLight": false,
+    "_isFlash": false,
+    "_timer": 0,
+    "_repeatCounter": 0,
     "_id": ""
   },
   {
@@ -138,7 +136,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "e3a96066-2456-4089-b980-dd9c339e4add"
     },
     "fileId": "3bryaC9aVHuKJyL6O9zXYa",
     "sync": false

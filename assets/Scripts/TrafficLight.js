@@ -19,14 +19,13 @@ cc.Class({
             return;
         }
 
-        this._currentLight.light(dt);
-        this._currentLight.flash(dt);
-
         this.nextLight();
     },
 
     nextLight() {
         if (this._currentLight.isCompleted) {
+            this._currentLight.isLighting = false;
+
             this._index++;
             if (this._index === this.lights.length) {
                 this._currentLight = null;
@@ -39,6 +38,7 @@ cc.Class({
 
     turnOnCurrentLight() {
         this._currentLight = this.lights[this._index];
+        this._currentLight.isLighting = true;
         this._currentLight.turnOn();
     },
 });

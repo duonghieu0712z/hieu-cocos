@@ -1,5 +1,14 @@
 function getBox(node) {
-    const { x, y, width, height, scaleX, scaleY, anchorX, anchorY } = node;
+    let { x, y, width, height, scaleX, scaleY, anchorX, anchorY } = node;
+    if (scaleX < 0) {
+        scaleX = -scaleX;
+        anchorX = 1 - anchorX;
+    }
+    if (scaleY < 0) {
+        scaleY = -scaleY;
+        anchorY = 1 - anchorY;
+    }
+
     const leftX = x - width * scaleX * anchorX;
     const topY = y + height * scaleY * (1 - anchorY);
     const rightX = x + width * scaleX * (1 - anchorX);

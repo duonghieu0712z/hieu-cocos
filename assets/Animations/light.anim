@@ -3,10 +3,10 @@
   "_name": "light",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 1.4166666666666667,
-  "sample": 60,
-  "speed": 0.1,
-  "wrapMode": 1,
+  "_duration": 2.2,
+  "sample": 100,
+  "speed": 1,
+  "wrapMode": 2,
   "curveData": {
     "props": {
       "opacity": [
@@ -21,31 +21,56 @@
           "curve": "constant"
         },
         {
-          "frame": 1.0833333333333333,
+          "frame": 1.2,
           "value": 255,
           "curve": "constant"
         },
         {
-          "frame": 1.1666666666666667,
+          "frame": 1.4,
           "value": 63,
           "curve": "constant"
         },
         {
-          "frame": 1.25,
+          "frame": 1.6,
           "value": 255,
           "curve": "constant"
         },
         {
-          "frame": 1.3333333333333333,
+          "frame": 1.8,
           "value": 63,
           "curve": "constant"
         },
         {
-          "frame": 1.4166666666666667,
-          "value": 255
+          "frame": 2,
+          "value": 255,
+          "curve": "constant"
+        },
+        {
+          "frame": 2.2,
+          "value": 63
         }
       ]
     }
   },
-  "events": []
+  "events": [
+    {
+      "frame": 0,
+      "func": "light",
+      "params": [
+        true
+      ]
+    },
+    {
+      "frame": 2.2,
+      "func": "",
+      "params": []
+    },
+    {
+      "frame": 2.2,
+      "func": "light",
+      "params": [
+        false
+      ]
+    }
+  ]
 }

@@ -8,30 +8,39 @@ cc.Class({
         anim: cc.Animation,
         car: cc.Node,
 
-        isMoving: {
-            default: false,
-            visible: false,
-        },
+        _isMoving: false,
+        _isDied: false,
     },
 
     update(dt) {
-        if (this.isMoving) {
-            const normalizeDirection = this.direction.normalize();
-            this.node.position = this.node.position.add(
-                normalizeDirection.mul(this.speed * dt)
-            );
+        if (!this._isDied && this._isMoving) {
+            this.move(dt);
         }
     },
 
-    playRun() {
-        if (!this.isMoving) {
+    move(dt) {
+        const normalizeDirection = this.direction.normalize();
+        this.node.position = this.node.position.add(
+            normalizeDirection.mul(this.speed * dt)
+        );
+    },
+
+    die() {
+        this.stop();
+
+        this.node.color = cc.Color.BLACK;
+        this._isDied = true;
+    },
+
+    run() {
+        if (!this._isMoving) {
             this.anim.play("chicken-run");
-            this.isMoving = true;
+            this._isMoving = true;
         }
     },
 
-    stopRun() {
+    stop() {
         this.anim.stop("chicken-run");
-        this.isMoving = false;
+        this._isMoving = false;
     },
 });

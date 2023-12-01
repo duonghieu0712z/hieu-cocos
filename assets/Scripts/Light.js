@@ -8,17 +8,10 @@ cc.Class({
         flashDuration: 0.2,
         flashRepeat: 6,
 
-        isCompleted: {
-            default: false,
-            visible: false,
-        },
-        isLighting: {
-            default: false,
-            visible: false,
-        },
-
+        _isActive: false,
         _isLight: false,
         _isFlash: false,
+
         _timer: 0,
         _repeatCounter: 0,
     },
@@ -29,10 +22,21 @@ cc.Class({
     },
 
     update(dt) {
-        if (this.isLighting) {
+        if (this._isActive) {
             this.light(dt);
             this.flash(dt);
         }
+    },
+
+    isActive() {
+        return this._isActive;
+    },
+
+    active(isActive) {
+        if (isActive) {
+            this.turnOn();
+        }
+        this._isActive = isActive;
     },
 
     turnOn() {
@@ -61,7 +65,7 @@ cc.Class({
 
                 this._repeatCounter++;
                 if (this._repeatCounter > this.flashRepeat) {
-                    this.isCompleted = true;
+                    this._isActive = false;
                 }
 
                 this._timer = 0;

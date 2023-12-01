@@ -14,13 +14,20 @@ cc.Class({
     },
 
     update(dt) {
-        if (this.greenLight.isLighting) {
-            this.chicken.playRun();
-            this.car.isMoving = true;
-        }
+        this.onTurnOnGreenLight();
+        this.onCollider();
+    },
 
+    onTurnOnGreenLight() {
+        if (this.greenLight.isActive()) {
+            this.chicken.run();
+            this.car.run();
+        }
+    },
+
+    onCollider() {
         if (isCollided(this.chicken.node, this.car.node)) {
-            this.chicken.stopRun();
+            this.chicken.die();
         }
     },
 });

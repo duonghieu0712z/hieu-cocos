@@ -6,7 +6,6 @@ cc.Class({
         speed: 20,
 
         anim: cc.Animation,
-        car: cc.Node,
 
         _isMoving: false,
         _isDied: false,

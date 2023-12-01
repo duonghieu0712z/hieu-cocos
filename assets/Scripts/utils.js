@@ -29,7 +29,29 @@ function isCollided(node1, node2) {
     return !notOverlap;
 }
 
+function drawBoxNode(g, node) {
+    const { leftX, topY, rightX, bottomY } = getBox(node);
+    drawBox(g, leftX, topY, rightX, bottomY);
+}
+
+function drawBox(g, leftX, topY, rightX, bottomY) {
+    g.circle(leftX, topY, 2);
+    g.circle(rightX, bottomY, 3);
+
+    drawLine(g, leftX, topY, rightX, topY);
+    drawLine(g, rightX, topY, rightX, bottomY);
+    drawLine(g, rightX, bottomY, leftX, bottomY);
+    drawLine(g, leftX, bottomY, leftX, topY);
+}
+
+function drawLine(g, x1, y1, x2, y2) {
+    g.moveTo(x1, y1);
+    g.lineTo(x2, y2);
+}
+
 module.exports = {
     getBox,
     isCollided,
+
+    drawBoxNode,
 };

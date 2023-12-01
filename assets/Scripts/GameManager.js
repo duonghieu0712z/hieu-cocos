@@ -28,6 +28,7 @@ cc.Class({
     onCollider() {
         if (isCollided(this.chicken.node, this.car.node)) {
             this.chicken.die();
+            this.car.stop();
         }
     },
 });

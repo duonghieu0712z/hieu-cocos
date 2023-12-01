@@ -12,16 +12,16 @@ cc.Class({
     },
 
     update(dt) {
-        if (!this._isDied && this._isMoving) {
-            this.move(dt);
-        }
+        this.move(dt);
     },
 
     move(dt) {
-        const normalizeDirection = this.direction.normalize();
-        this.node.position = this.node.position.add(
-            normalizeDirection.mul(this.speed * dt)
-        );
+        if (!this._isDied && this._isMoving) {
+            const normalizeDirection = this.direction.normalize();
+            this.node.position = this.node.position.add(
+                normalizeDirection.mul(this.speed * dt)
+            );
+        }
     },
 
     die() {

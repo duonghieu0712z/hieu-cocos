@@ -494,8 +494,7 @@
     "lightDuration": 1,
     "flashDuration": 0.2,
     "flashRepeat": 6,
-    "isCompleted": false,
-    "isLighting": false,
+    "_isActive": false,
     "_isLight": false,
     "_isFlash": false,
     "_timer": 0,
@@ -626,8 +625,7 @@
     "lightDuration": 1,
     "flashDuration": 0.2,
     "flashRepeat": 6,
-    "isCompleted": false,
-    "isLighting": false,
+    "_isActive": false,
     "_isLight": false,
     "_isFlash": false,
     "_timer": 0,
@@ -758,8 +756,7 @@
     "lightDuration": 1,
     "flashDuration": 0.2,
     "flashRepeat": 6,
-    "isCompleted": false,
-    "isLighting": false,
+    "_isActive": false,
     "_isLight": false,
     "_isFlash": false,
     "_timer": 0,
@@ -970,7 +967,8 @@
     "car": {
       "__id__": 26
     },
-    "isMoving": false,
+    "_isMoving": false,
+    "_isDied": false,
     "_id": "fd1+47HEVJ6ar2Qk8Bgm4V"
   },
   {
@@ -1151,7 +1149,7 @@
       "y": 0
     },
     "speed": 300,
-    "isMoving": false,
+    "_isMoving": false,
     "_id": "1aKXRUpOdMv7P6N9VinLTO"
   },
   {
@@ -1392,7 +1390,7 @@
       "y": 0
     },
     "speed": 300,
-    "isMoving": false,
+    "_isMoving": false,
     "_id": "27r48efZBElbUxtsyYF0b0"
   },
   {

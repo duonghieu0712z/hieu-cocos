@@ -35,9 +35,9 @@ function drawBoxNode(g, node) {
 }
 
 function drawBox(g, leftX, topY, rightX, bottomY) {
-    // Draw top left point
+    // Draw top-left point
     g.circle(leftX, topY, 3);
-    // Draw bottom right point
+    // Draw bottom-right point
     g.rect(rightX - 3, bottomY - 3, 6, 6);
 
     drawLine(g, leftX, topY, rightX, topY);
